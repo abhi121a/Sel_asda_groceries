@@ -1,0 +1,97 @@
+package com.asda.groceries.pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Postcode 
+{  WebDriver driver;
+
+	public Postcode(WebDriver driver){
+		this.driver=driver;
+		PageFactory.initElements(driver, this);}
+	
+@FindBy(xpath="//img[@width='203' and @alt='Asda Groceries']")
+WebElement asda_icon;
+
+
+@FindBy(xpath="//a[@class='button button-ter' and contains(text(),'Need some help?')]")
+WebElement need_some_help;
+
+@FindBy(xpath="//span[@class='arrow-back' and contains(text(),'Back to shop')]")
+WebElement Back_to_shop;
+
+@FindBy(xpath="//div[@id='reg-wrapper']/h1[contains(text(),'Registering is quick and easy')]")
+WebElement register_text;
+
+@FindBy(id="postcode")
+WebElement postcode_text_box;
+
+@FindBy(xpath="//input[@class='button button-pri' and @type='submit']")
+WebElement continue_button;
+
+@FindBy(xpath="//a[@class='button button-ter online-help-link' and contains(text(),'Online help')]")
+WebElement Online_help_button;
+
+public boolean test(WebElement element) {
+	boolean flag=false;
+	if(element != null)
+	flag=true;
+	return flag;
+}
+public void test_postcode_Element_present(){
+	if(test(asda_icon))
+	{
+		System.out.println("asda_icon present");
+	}
+	else System.out.println("asda_icon not present");
+	
+	if(test(need_some_help)){
+		System.out.println("need_some_help present");
+	}
+	else System.out.println("need_some_help not present");
+	
+
+	if(test(Back_to_shop))
+	{
+		System.out.println("Back_to_shop present");
+	}
+	else System.out.println("Back_to_shop not present");
+	
+	if(test(register_text))
+	{
+		System.out.println("register_text present");
+	}
+	else System.out.println("register_text not present");
+	
+	if(test(postcode_text_box))
+	{
+		System.out.println("postcode_text_box present");
+	}
+	else System.out.println("postcode_text_box not present");
+	
+	if(test(continue_button))
+	{
+		System.out.println("continue_button present");
+	}
+	else System.out.println("continue_button not present");
+	
+	
+	if(test(Online_help_button))
+	{
+		System.out.println("Online_help_button present");
+	}
+	else System.out.println("Online_help_button not present");
+
+}
+
+public void check_postcode(String postcode){
+	postcode_text_box.click();
+	postcode_text_box.sendKeys(postcode);
+	continue_button.click();
+}
+
+
+
+}
