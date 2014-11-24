@@ -1,0 +1,33 @@
+package com.asda.groceries.test;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.asda.groceries.pages.Register;
+
+public class Register_testng {
+WebDriver driver;
+Register obj;
+@BeforeTest
+public void setup(){
+	driver=new FirefoxDriver();
+	driver.get("http://groceries.asda.com/");
+	driver.manage().window().maximize();
+	driver.navigate().refresh();
+	//PageFactory.initElements(driver,obj1 );
+	obj=new Register(driver);
+	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	
+}
+@Test
+public void Registeration_test(){
+		obj.click_register("dn211za");
+		obj.test_postcode_Element_present();
+	
+	
+}
+}
