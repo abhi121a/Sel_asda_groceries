@@ -1,0 +1,10 @@
+public boolean test(WebElement element) {
+	boolean flag=false;
+	try{
+		 if(element.isDisplayed())
+		 flag =true;
+		 return flag;
+		 }catch (Exception throwException)
+	 {return flag = false;
+
+	 }
